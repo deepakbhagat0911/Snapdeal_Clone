@@ -1,0 +1,106 @@
+/* head */
+.head {
+  /* background-color: ; */
+  background-color: #c7003d;
+  padding: 10px 0;
+  color: #fff;
+  font-size: 13px;
+  width: 100vw;
+}
+.head label {
+  font-size: 13px;
+  margin-right: 30px;
+}
+
+/* head */
+
+/* search */
+
+.search {
+  padding: 20px 0;
+  background-color: #e40046;
+  color: #fff;
+  width: 100vw;
+}
+.search .logo {
+  font-size: 1.8rem;
+  height: auto;
+  width: auto;
+}
+
+.search-box {
+  width: 60%;
+  /* margin-left: 20px; */
+  border: 1px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.search-box input {
+  width: 100%;
+  padding: 0 15px;
+  border: none;
+  outline: none;
+  border-radius: none;
+}
+.serchBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 15px;
+  background-color: #333;
+  color: #fff;
+  /* overflow: hidden; */
+}
+
+.wraper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* gap: 5px; */
+  cursor: pointer;
+}
+.icon {
+  /* margin: 0 25px; */
+  gap: 50px;
+}
+.icon {
+  justify-content: end;
+  align-items: center;
+}
+.search.active {
+  height: 66px;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+.logout-text {
+  display: none;
+
+  color: #fff;
+  background-color: green;
+}
+.avtar.warper :hover .logout-text {
+  display: block;
+}
+@media screen and (max-width: 900px) {
+  .Rtext {
+    display: none;
+  }
+
+  .serchBtn {
+    padding: 0 6px;
+    font-size: 12px;
+  }
+  .container .icon {
+    display: none;
+  }
+  .c_flex {
+    align-items: center;
+  }
+
+  .search-box {
+    width: 60%;
+    height: 30px;
+  }
+}

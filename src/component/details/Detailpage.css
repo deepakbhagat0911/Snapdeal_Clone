@@ -1,0 +1,20 @@
+.addBtn,
+.buyBtn {
+  width: 46%;
+  height: 50px;
+  border-radius: 3px;
+  color: #fff;
+}
+.addBtn {
+  margin-right: 10px;
+  background-color: #333;
+
+  border: none;
+}
+.buyBtn {
+  background-color: #e40046;
+  border: none;
+}
+.buyBtn:hover {
+  background-color: #c7003d;
+}
