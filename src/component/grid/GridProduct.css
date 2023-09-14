@@ -1,0 +1,45 @@
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  column-gap: 7px;
+  align-items: center;
+  width: 95%;
+  margin: 20px auto 0 auto;
+}
+.card {
+  width: 300px;
+  height: 260px;
+  box-shadow: 0 0 4px #d4ecff;
+  border-radius: 4px;
+  background: #fff;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 7px 7px 25px 1px rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+  text-align: center;
+}
+.card-header {
+  text-align: center;
+}
+.card-header img {
+  width: 150px;
+  height: 150px;
+}
+.card-content {
+  padding: 12px;
+  /* font-size: 1rem; */
+}
+
+.news-title {
+  margin-top: 5px;
+}
+.news-desc {
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}

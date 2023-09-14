@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import Footer from "../Footer/Footer";
 import { useParams } from "react-router-dom";
 import { Box, Typography, Grid, styled } from "@mui/material";
 import { useNavigate } from "react-router-dom";
@@ -51,65 +51,77 @@ const Detailview = () => {
   }, []);
 
   if (error) {
-    return <h1>Something went Wrong</h1>;
+    return (
+      <h1 style={{ textAlign: "center", marginTop: "20%" }}>
+        Something went Wrong
+      </h1>
+    );
   }
   if (productData.length === 0) {
     return <div style={{ textAlign: "center", marginTop: "150px" }}></div>;
   }
 
   const gotoCart = () => {
-    navigate(`/cart`);
+    if (state.cart.some((pro) => pro.id === productData.id)) {
+      navigate(`/cart`);
+    } else {
+      dispatch({ type: "ADD_TO_CART", payload: productData });
+      navigate(`/cart`);
+    }
   };
   return (
-    <Wrapper>
-      <Container container>
-        <LeftBox>
-          <Grid item lg={8} md={8} sm={12} xs={12}>
-            <Image src={productData.image} alt="" />
-          </Grid>
-        </LeftBox>
-        <Rightcontainer item lg={4} md={8} sm={12} xs={12}>
-          <Typography>{productData.title}</Typography>
-          <Typography
-            style={{ marginTop: "5px", color: "#878787", fontSize: "14px" }}
-          >
-            Rating {productData.rating.rate} & {productData.rating.count}{" "}
-            Reviews
-          </Typography>
-          <Typography>{productData.category}</Typography>
-          <Typography
-            style={{ color: "green", fontSize: "20px", margin: "10px 0" }}
-          >
-            Price ${productData.price}
-          </Typography>
-          <Typography style={{ margin: "10px 0" }}>
-            {productData.description}
-          </Typography>
-          {state.cart.some((pro) => pro.id === productData.id) ? (
-            <button
-              className="addBtn"
-              onClick={() =>
-                dispatch({ type: "REMOVE_TO_CART", payload: productData })
-              }
+    <>
+      <Wrapper>
+        <Container container>
+          <LeftBox>
+            <Grid item lg={8} md={8} sm={12} xs={12}>
+              <Image src={productData.image} alt="" />
+            </Grid>
+          </LeftBox>
+          <Rightcontainer item lg={4} md={8} sm={12} xs={12}>
+            <Typography>{productData.title}</Typography>
+            <Typography
+              style={{ marginTop: "5px", color: "#878787", fontSize: "14px" }}
             >
-              Remove To Cart
-            </button>
-          ) : (
-            <button
-              className="addBtn"
-              onClick={() =>
-                dispatch({ type: "ADD_TO_CART", payload: productData })
-              }
+              Rating {productData.rating.rate} & {productData.rating.count}{" "}
+              Reviews
+            </Typography>
+            <Typography>{productData.category}</Typography>
+            <Typography
+              style={{ color: "green", fontSize: "20px", margin: "10px 0" }}
             >
-              Add To Card
+              Price ${productData.price}
+            </Typography>
+            <Typography style={{ margin: "10px 0" }}>
+              {productData.description}
+            </Typography>
+            {state.cart.some((pro) => pro.id === productData.id) ? (
+              <button
+                className="addBtn"
+                onClick={() =>
+                  dispatch({ type: "REMOVE_TO_CART", payload: productData })
+                }
+              >
+                Remove To Cart
+              </button>
+            ) : (
+              <button
+                className="addBtn"
+                onClick={() =>
+                  dispatch({ type: "ADD_TO_CART", payload: productData })
+                }
+              >
+                Add To Cart
+              </button>
+            )}
+            <button className="buyBtn" onClick={gotoCart}>
+              Buy Now
             </button>
-          )}
-          <button className="buyBtn" onClick={gotoCart}>
-            Buy Now
-          </button>
-        </Rightcontainer>
-      </Container>
-    </Wrapper>
+          </Rightcontainer>
+        </Container>
+      </Wrapper>
+      {/* <Footer /> */}
+    </>
   );
 };
 

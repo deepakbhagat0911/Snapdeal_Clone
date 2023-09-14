@@ -33,6 +33,9 @@ const Wraper = styled(Box)`
 const LoginBtn = styled(Button)`
   background: #e40046;
   color: #fff;
+  &:hover {
+    background: #333; /* Change the background color on hover */
+  }
 `;
 const Text = styled(Typography)`
   font-size: 12px;
@@ -64,11 +67,13 @@ const LoginDialog = ({ open, setOpen }) => {
   const [error, setError] = useState("");
 
   const handleClose = () => {
+    setError("");
     setOpen(false);
     toggleAccount(initial.login);
   };
   const toggleSignup = () => {
     toggleAccount(initial.signup);
+    setError("");
   };
 
   const logIn = async (e) => {
@@ -80,13 +85,21 @@ const LoginDialog = ({ open, setOpen }) => {
     await signInWithEmailAndPassword(auth, values.email, values.password)
       .then((res) => {
         const user = res.user;
-
         handleClose();
         navigate("/");
+        window.location.reload();
       })
       .catch((err) => {
-        setError(err.message);
-        console.log("error-", err.message);
+        if (err.code === "auth/invalid-email") {
+          setError("Invalid Email");
+          return;
+        } else if (err.code === "auth/wrong-password") {
+          setError("Invalid Password");
+          return;
+        } else if (err.code === "auth/user-not-found") {
+          setError("User not found");
+          return;
+        }
       });
   };
   const signIn = async (e) => {
@@ -104,10 +117,17 @@ const LoginDialog = ({ open, setOpen }) => {
         });
         handleClose();
         navigate("/");
+
+        window.location.reload();
       })
       .catch((err) => {
-        setError(err.message);
-        console.log("error-", err.message);
+        if (err.code === "auth/invalid-email") {
+          setError("Enter Valid Email");
+          return;
+        } else if (err.code === "auth/weak-password") {
+          setError("Password should be at least 6 characters ");
+          return;
+        }
       });
   };
   return (
@@ -182,13 +202,7 @@ const LoginDialog = ({ open, setOpen }) => {
               >
                 {error}
               </b>
-              <button
-                className="buyBtn"
-                onClick={signIn}
-                style={{ margin: "20px auto" }}
-              >
-                CONTINUE
-              </button>
+              <LoginBtn onClick={signIn}>CONTINUE</LoginBtn>
             </Wraper>
           )}
         </Component>

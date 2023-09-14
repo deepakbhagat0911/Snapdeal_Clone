@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import { Box, Typography, styled } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-const Header = styled(Box)`
+const BillHeader = styled(Box)`
   padding: 15px 24px;
   border-bottom: 1px solid #f0f0f0;
 `;
 
-const Container = styled(Box)`
+const BillContainer = styled(Box)`
   padding: 15px 24px;
   border-bottom: 1px solid #f0f0f0;
   & > p {
@@ -21,19 +21,19 @@ const Container = styled(Box)`
 const Price = styled(Box)`
   float: right;
 `;
-const Cartbill = ({ products, profile }) => {
+const Cartbill = ({ product, profile }) => {
   const navigate = useNavigate();
   const [price, setPrice] = useState(0);
   const [discount, setDiscount] = useState(0);
 
   useEffect(() => {
     totalAmount();
-  }, [products]);
+  }, [product]);
 
   const totalAmount = () => {
     let price = 0,
       discount = 0;
-    products.map((item) => {
+    product.map((item) => {
       price += item.price;
       discount += (item.price * 30) / 100;
     });
@@ -49,12 +49,12 @@ const Cartbill = ({ products, profile }) => {
   };
   return (
     <Box>
-      <Header>
+      <BillHeader>
         <Typography style={{ color: "#878787" }}>Price Detail</Typography>
-      </Header>
-      <Container>
+      </BillHeader>
+      <BillContainer>
         <Typography>
-          Price({products.length} item)
+          Price({product.length} item)
           <Price component={"span"}>${price.toFixed(2)}</Price>
         </Typography>
         <Typography>
@@ -76,7 +76,7 @@ const Cartbill = ({ products, profile }) => {
         <Typography style={{ color: "green" }}>
           You will save ${discount.toFixed(2)} on this Order
         </Typography>
-      </Container>
+      </BillContainer>
 
       <Box textAlign={"end"} marginTop={"10px"}>
         <button className="buyBtn" onClick={placeOrder}>

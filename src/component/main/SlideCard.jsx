@@ -1,6 +1,6 @@
 import React from "react";
 import { bannerData } from "./data";
-// import { styled } from "@mui/material";
+import { Link } from "react-router-dom";
 import LoginCard from "./Logincard";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -44,7 +44,11 @@ const SlideCard = () => {
             itemClass="carousel-item-padding-40-px"
           >
             {bannerData.map((image) => {
-              return <Img src={image.cover} alt="" />;
+              return (
+                <Link to={"/product"}>
+                  <Img src={image.cover} alt="" />
+                </Link>
+              );
             })}
           </Carousel>
         </div>

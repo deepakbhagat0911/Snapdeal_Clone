@@ -27,7 +27,7 @@ const BtnComponent = styled(Box)`
 const Text = styled(Box)`
   margin-top: 5px;
 `;
-const Cartitem = ({ product, qty }) => {
+const Cartitem = ({ product }) => {
   const { state, dispatch } = CartState();
   const [count, setCount] = useState(1);
   const [total, setAmount] = useState();
@@ -56,7 +56,7 @@ const Cartitem = ({ product, qty }) => {
       </LeftComponent>
       <Box style={{ padding: "10px" }}>
         <Text>{product.title}</Text>
-        <Text style={{ color: "green" }}>Price ${product.price}</Text>
+        <Text style={{ color: "green" }}>Price ${count * product.price}</Text>
         <BtnComponent>
           <RemoveIcon onClick={decriment} />
           <Typography>{count}</Typography>

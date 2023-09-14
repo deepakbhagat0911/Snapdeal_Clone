@@ -1,43 +1,49 @@
 import { Box, Typography, styled } from "@mui/material";
-
+import { Link } from "react-router-dom";
 const Container = styled(Box)`
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
 `;
 
-const Item = styled(Box)`
-  flex-basis: calc(20% - 10px);
-  height: 300px;
-  width: 200px;
-  cursor: pointer;
-`;
+const Item = styled(Box)``;
 
 const Image = styled("img")`
-  border-radius: 20px;
-  padding: 10px;
-  width: 200px;
-  height: 250px;
+  cursor: pointer;
+  width: 100%;
+  height: 300px;
+  @media (max-width: 1100px) {
+    width: 100%;
+    height: 200px;
+  }
+  @media (max-width: 1100px) {
+    width: 100%;
+    height: auto;
+  }
 `;
+
 const Slider2 = () => {
   return (
     <Box marginTop={5}>
       <Container>
-        <Item>
-          <Image src={"./brand-img/brand1.avif"} alt="" />
-        </Item>
-        <Item>
-          <Image src={"./brand-img/brand2.avif"} alt="" />
-        </Item>
-        <Item>
-          <Image src={"./brand-img/brand5.avif"} alt="" />
-        </Item>
-        <Item>
-          <Image src={"./brand-img/brand4.avif"} alt="" />
-        </Item>
-        <Item>
-          <Image src={"./brand-img/brand3.avif"} alt="" />
-        </Item>
+        <Link to={"/product"}>
+          <Item>
+            <Image
+              src={"https://i.ytimg.com/vi/U5Q3Du2W9a0/maxresdefault.jpg"}
+              alt=""
+            />
+          </Item>
+        </Link>
+        <Link to={"/product"}>
+          <Item>
+            <Image
+              src={
+                "https://assets.ajio.com/cms/AJIO/MOBILE/05092023-UHP-M-IconicSale-4080.jpg"
+              }
+              alt=""
+            />
+          </Item>
+        </Link>
       </Container>
     </Box>
   );

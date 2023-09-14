@@ -6,7 +6,7 @@ const Footer = () => {
       <div style={{ backgroundColor: "#dcdcdc" }}>
         <div className="Footer-container">
           <div className="footerboxs">
-            <div className="footer-text">
+            <div className="footer-text small">
               <p>POLICY INFO</p>
               <div className="footer-items">
                 <ul>
@@ -41,7 +41,7 @@ const Footer = () => {
                 </ul>
               </div>
             </div>
-            <div className="footer-text">
+            <div className="footer-text large">
               <p>POPULAR LINKS</p>
               <div className="footer-items">
                 <ul>

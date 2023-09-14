@@ -69,4 +69,15 @@
   .footer-text {
     padding: 5px;
   }
+  .small {
+    display: none;
+  }
+}
+@media screen and (max-width: 500px) {
+  .social {
+    display: none;
+  }
+  .large {
+    display: none;
+  }
 }

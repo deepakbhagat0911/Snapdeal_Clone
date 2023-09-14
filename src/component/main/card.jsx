@@ -19,7 +19,7 @@ const responsive = {
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 1,
+    items: 2,
   },
 };
 
@@ -39,7 +39,12 @@ const Dealtext = styled(Typography)`
   font-size: 22px;
   font-weight: 600;
   margin-right: 25px;
-  line-height: 32px;
+
+  @media (max-width: 500px) {
+    font-size: 16px;
+    font-weight: 600;
+    margin-right: 15px;
+  }
 `;
 
 const ViewAllbtn = styled(Button)`
@@ -48,11 +53,23 @@ const ViewAllbtn = styled(Button)`
   background: none;
   box-shadow: none;
   color: #2874f0;
+  &:hover {
+    color: #fff; /* Change the background color on hover */
+  }
+
+  @media (max-width: 500px) {
+    font-size: 12px;
+    padding: 2px 2px;
+  }
 `;
 
 const Image = styled("img")`
   width: auto;
   height: 150px;
+  @media (max-width: 500px) {
+    width: 100%;
+    height: 100px;
+  }
 `;
 
 const Text = styled(Typography)`
@@ -63,7 +80,9 @@ const Card = ({ products, title }) => {
     <Component>
       <Deal>
         <Dealtext> {title}</Dealtext>
-        <ViewAllbtn variant="contained">view all</ViewAllbtn>
+        <Link to={"/product"}>
+          <ViewAllbtn variant="contained">view all</ViewAllbtn>
+        </Link>
       </Deal>
       <Divider />
       <Box>
@@ -72,11 +91,9 @@ const Card = ({ products, title }) => {
           draggable={false}
           responsive={responsive}
           infinite={true}
-          autoPlay={true}
-          autoPlaySpeed={2000}
           keyBoardControl={true}
           showDots={false}
-          slidesToSlide={1}
+          slidesToSlide={2}
           containerClass="carousel-container"
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-40-px"

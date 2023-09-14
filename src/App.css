@@ -18,9 +18,7 @@
 .f_flex {
   display: flex;
 }
-.box img {
-  padding-bottom: 5px;
-}
+
 .category {
   width: 220px;
   box-shadow: rgb(43 52 69/10%) 0 4px 16px;
@@ -37,8 +35,6 @@
 .category img {
   width: 30px;
   height: 30px;
-  margin-top: 10px;
-  object-fit: contain;
   border-radius: 50%;
 }
 .box span {
