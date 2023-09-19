@@ -39,29 +39,34 @@ export const data = [
     catImg:
       "https://imgmediagumlet.lbb.in/media/2023/05/645a23d3fe6a191f3785b5b0_1683629011869.jpg?fm=webp&w=750&h=500&dpr=1",
     catName: "Men's Fashion",
+    path: "mens",
   },
   {
     id: 2,
     catImg:
       "https://d2line.com/thatlook/wp-content/uploads/sites/4/2022/09/women-fashion-and-women-clothing.png",
     catName: "Women's Fashion",
+    path: "women",
   },
   {
     id: 3,
     catImg:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAQ2g8QiAuzBQZsDLoHcV5I239LAPPpbCUtg&usqp=CAU",
     catName: "Home & Kitchen",
+    path: "mens",
   },
   {
     id: 4,
     catImg:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU6skQ8hK8aoGEgXBA2iqVwnnel9a-H9LPNtM-0OCUqUlU7bLxMJPy7OB_x8sT-07Nn-Y&usqp=CAU",
     catName: "Toys, Kids' Fashion ",
+    path: "women",
   },
   {
     id: 5,
     catImg:
       "https://img.freepik.com/premium-photo/beauty-skincare-woman-portrait-with-green-plant-natural-skin-dermatology-cosmetic-product-happy-face-aesthetic-model-studio-sustainable-glow-makeup-health-wellness_590464-135802.jpg",
     catName: "Beauty, Health ",
+    path: "mens",
   },
 ];

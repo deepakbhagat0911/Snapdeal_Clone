@@ -7,8 +7,10 @@ import Detailview from "./component/details/Detailview";
 import Cart from "./component/cart/cart";
 import { auth } from "./firebase";
 import { Payment } from "./component/payment/payment";
-
+import Mens from "./component/pages/mens";
 import GridProducts from "./component/grid/GridProducts";
+import Women from "./component/pages/womes";
+import Pages from "./component/pages/other";
 // import Summary from "./component/summary/summary";
 const App = () => {
   const [profile, setProfile] = useState("Sign in");
@@ -35,6 +37,10 @@ const App = () => {
             element={<Payment useremail={useremail} profile={profile} />}
           />
           <Route path="/product" element={<GridProducts />} />
+          <Route path="/mens" element={<Mens />} />
+          <Route path="/women" element={<Women />} />
+          <Route path="/mens" element={<Mens />} />
+          <Route path="/page" element={<Pages />} />
         </Routes>
       </BrowserRouter>
     </>

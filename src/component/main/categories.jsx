@@ -41,9 +41,9 @@ const Categories = () => {
           {data.map((value) => {
             return (
               <Link
-                to={"/product"}
+                to={`${value.path}`}
                 style={{ textDecoration: "none", color: "#333" }}
-                key={data.id}
+                key={value.id}
               >
                 <div className="cat-name">
                   <img src={value.catImg} alt="" />
@@ -58,7 +58,7 @@ const Categories = () => {
           {moreData.map((value) => {
             return (
               <Link
-                to={"/product"}
+                to={"/page"}
                 style={{ textDecoration: "none", color: "#333" }}
                 key={moreData.id}
               >
