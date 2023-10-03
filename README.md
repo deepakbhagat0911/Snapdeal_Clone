@@ -53,4 +53,4 @@ Learning purpose.
 
 This project was built using ReactJS,JavaScript,MUI, HTML, CSS, Rest API .
 
-Link:- https://reliable-sunshine-2d987f.netlify.app
+Link:- https://lighthearted-monstera-d6d54b.netlify.app
